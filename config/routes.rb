@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :employees do
+    collection do
+      get :reporting_details
+    end
+  end
+  resources :users do
+    collection do
+      get 'reporting_details'
+    end
+  end
+  
 end
